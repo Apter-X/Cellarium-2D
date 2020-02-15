@@ -1,0 +1,1 @@
+int scan(int Xposition, int Yposition, int tableau[][3]);
