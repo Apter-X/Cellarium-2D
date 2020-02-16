@@ -1,1 +1,1 @@
-void materialize(int dimensionX, int dimensionY, int tableau[][5]);
+void materialize(int dimensionX, int dimensionY, int tableau[][10]);

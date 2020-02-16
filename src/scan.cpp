@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h> //for randomizing
 
-int scan(int xPosition, int yPosition, int tableau[][5])
+int scan(int xPosition, int yPosition, int tableau[][10])
 {
   int direction = 0;
 
@@ -17,10 +17,10 @@ int scan(int xPosition, int yPosition, int tableau[][5])
 
   printf("Scaner :\n");
   printf("position %d,%d\n", xPosition, yPosition);
-  printf("bottom = %d\n", bottom);
-  printf("top = %d\n", top);
-  printf("right = %d\n", right);
-  printf("left = %d\n", left);
+  // printf("bottom = %d\n", bottom);
+  // printf("top = %d\n", top);
+  // printf("right = %d\n", right);
+  // printf("left = %d\n", left);
 
   //Choose a direction
   if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7 && right >= 0 && right < 7 && left >= 0 && left < 7)

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void materialize(int dimensionX, int dimensionY, int tableau[][5])
+void materialize(int dimensionX, int dimensionY, int tableau[][10])
 {
   system ("clear");
   printf("|Cellarium 2D|\n");

@@ -1,1 +1,1 @@
-void move(int direction, int *xPosition, int *yPosition,int tableau[][5]);
+void move(int direction, int *xPosition, int *yPosition,int tableau[][10]);
