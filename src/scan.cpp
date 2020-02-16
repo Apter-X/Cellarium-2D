@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h> //for randomizing
 
-//Analyse les cases autour de sa position
 int scan(int xPosition, int yPosition, int tableau[][5])
 {
   int direction = 0;
 
+  // initialize random seed:
+  srand (time(NULL));
+
+  //scanning the 4 ways we have
   int bottom = tableau[xPosition+1][yPosition];
   int top = tableau[xPosition-1][yPosition];
   int right = tableau[xPosition][yPosition+1];
@@ -18,22 +22,170 @@ int scan(int xPosition, int yPosition, int tableau[][5])
   printf("right = %d\n", right);
   printf("left = %d\n", left);
 
-  if(bottom <= 6 || bottom >= 0)
+  //Choose a direction
+  if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7 && right >= 0 && right < 7 && left >= 0 && left < 7)
+  {
+    // printf("Bot, Top, Right, Left");
+    return (direction = rand() % 4 + 1);
+  }
+
+  if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7 && right >= 0 && right < 7)
+  {
+    // printf("Bot, Top, Right");
+    return (direction = rand() % 3 + 1);
+  }
+
+  if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7 && left >= 0 && left < 7)
+  {
+    // printf("Bot, Top, Left");
+    direction = rand() % 3 + 1;
+
+    if(direction == 3)
+    {
+      return (direction = 4);
+    }
+    return (direction);
+  }
+
+  if(bottom >= 0 && bottom < 7 && right >= 0 && right < 7 && left >= 0 && left < 7)
+  {
+    // printf("Bot, Right, Left");
+    direction = rand() % 3 + 1;
+
+    if(direction == 2)
+    {
+      return (direction = 3);
+    }
+
+    if(direction == 3)
+    {
+      return (direction = 4);
+    }
+    return (direction);
+  }
+
+  if(top >= 0 && top < 7 && right >= 0 && right < 7 && left >= 0 && left < 7)
+  {
+    // printf("Top, Right, Left");
+
+    direction = rand() % 3 + 1;
+
+    if(direction == 1)
+    {
+      return (direction = 2);
+    }
+
+    if(direction == 2)
+    {
+      return (direction = 3);
+    }
+
+    if(direction == 3)
+    {
+      return (direction = 4);
+    }
+  }
+
+  if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7)
+  {
+    // printf("Bot, Top");
+
+    direction = rand() % 2 + 1;
+  }
+
+  if(bottom >= 0 && bottom < 7 && right >= 0 && right < 7)
+  {
+    // printf("Bot, Right");
+
+    direction = rand() % 2 + 1;
+
+    if(direction == 2)
+    {
+      return (direction = 3);
+    }
+    return direction;
+  }
+
+  if(bottom >= 0 && bottom < 7 && left >= 0 && left < 7)
+  {
+    // printf("Bot, Left");
+
+    direction = rand() % 2 + 1;
+
+    if(direction == 2)
+    {
+      return (direction = 4);
+    }
+    return direction;
+  }
+
+  if(top >= 0 && top < 7 && right >= 0 && right < 7)
+  {
+    // printf("Top, Right");
+
+    direction = rand() % 2 + 1;
+
+    if(direction == 1)
+    {
+      return (direction = 2);
+    }
+
+    if(direction == 2)
+    {
+      return (direction = 3);
+    }
+  }
+
+  if(top >= 0 && top < 7 && left >= 0 && left < 7)
+  {
+    // printf("Top, Left");
+
+    direction = rand() % 2 + 1;
+
+    if(direction == 1)
+    {
+      return (direction = 2);
+    }
+
+    if(direction == 2)
+    {
+      return (direction = 4);
+    }
+  }
+
+  if(right >= 0 && right < 7 && left >= 0 && left < 7)
+  {
+    // printf("Right, Left");
+
+    direction = rand() % 2 + 1;
+
+    if(direction == 1)
+    {
+      return (direction = 3);
+    }
+
+    if(direction == 2)
+    {
+      return (direction = 4);
+    }
+  }
+
+  if(bottom >= 0 && bottom < 7)
   {
     return (direction = 1);
   }
 
-  else if(top <= 6 || top >= 0)
+  if(top >= 0 && top < 7)
   {
     return (direction = 2);
   }
 
-  else if(right <= 6 || right >= 0)
+  if(right >= 0 && right < 7)
   {
     return (direction = 3);
   }
 
-  else if(left <= 6 || left >= 0)
+  if(left >= 0 && left < 7)
   {
     return (direction = 4);
   }

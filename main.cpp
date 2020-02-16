@@ -19,29 +19,23 @@ int main(int argc, char *argv[])
   int end = 0;
   int x = 1;
   int y = 1;
-
   int xDim = 5;
   int yDim = 5;
-
   int timer = 2;
-
-  int direction;
+  int direction = 0;
 
   int matrix[5][5] = {{9,7,7,7,9},
-                      {8,1,-1,0,8},
-                      {8,0,0,0,8},
+                      {8,1,0,0,8},
+                      {8,0,1,-1,8},
                       {8,0,0,0,8},
                       {9,7,7,7,9}};
-
-  materialize(xDim, yDim, matrix);
-  scan(x, y, matrix);
 
   while(end != 1)
   { 
     materialize(xDim, yDim, matrix);
     direction = scan(x, y, matrix);
-    sleep_for(seconds(timer));
     move(direction, &x, &y, matrix);
+    sleep_for(seconds(timer));
 
     end = 0;
   }

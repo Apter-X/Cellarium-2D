@@ -8,6 +8,7 @@ void move(int direction, int *xPosition, int *yPosition,int tableau[][5])
 
   int cell = tableau[xPos][yPos];
 
+  //Move in a direction
   switch(direction) 
   {
     case 1: //bottom
@@ -31,7 +32,7 @@ void move(int direction, int *xPosition, int *yPosition,int tableau[][5])
       tableau[xPos][yPos] += cell;
       break;
     default:
-      printf("ERROR MOVE");
+      printf("ERROR MOVE!");
   }
   *xPosition = xPos;
   *yPosition = yPos;
