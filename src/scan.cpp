@@ -26,18 +26,59 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7 && right >= 0 && right < 7 && left >= 0 && left < 7)
   {
     // printf("Bot, Top, Right, Left");
+    if(bottom > top && bottom > right && bottom > left)
+    {
+      return (direction = 1);
+    }
+    if(top > bottom && top > left && top > right)
+    {
+      return (direction = 2);
+    }
+    if(right > bottom && right > top && right > left)
+    {
+      return (direction = 3);
+    }
+    if(left > bottom && left > right && left > right)
+    {
+      return (direction = 4);
+    }
     return (direction = rand() % 4 + 1);
   }
 
   if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7 && right >= 0 && right < 7)
   {
     // printf("Bot, Top, Right");
+    if(bottom > top && bottom > right && bottom > left)
+    {
+      return (direction = 1);
+    }
+    if(top > bottom && top > left && top > right)
+    {
+      return (direction = 2);
+    }
+    if(right > bottom && right > top && right > left)
+    {
+      return (direction = 3);
+    }
     return (direction = rand() % 3 + 1);
   }
 
   if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7 && left >= 0 && left < 7)
   {
     // printf("Bot, Top, Left");
+    if(bottom > top && bottom > right && bottom > left)
+    {
+      return (direction = 1);
+    }
+    if(top > bottom && top > left && top > right)
+    {
+      return (direction = 2);
+    }
+    if(left > bottom && left > right && left > right)
+    {
+      return (direction = 4);
+    }
+
     direction = rand() % 3 + 1;
 
     if(direction == 3)
@@ -50,6 +91,19 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   if(bottom >= 0 && bottom < 7 && right >= 0 && right < 7 && left >= 0 && left < 7)
   {
     // printf("Bot, Right, Left");
+    if(bottom > top && bottom > right && bottom > left)
+    {
+      return (direction = 1);
+    }
+    if(right > bottom && right > top && right > left)
+    {
+      return (direction = 3);
+    }
+    if(left > bottom && left > right && left > right)
+    {
+      return (direction = 4);
+    }
+    
     direction = rand() % 3 + 1;
 
     if(direction == 2)
@@ -67,6 +121,18 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   if(top >= 0 && top < 7 && right >= 0 && right < 7 && left >= 0 && left < 7)
   {
     // printf("Top, Right, Left");
+    if(top > bottom && top > left && top > right)
+    {
+      return (direction = 2);
+    }
+    if(right > bottom && right > top && right > left)
+    {
+      return (direction = 3);
+    }
+    if(left > bottom && left > right && left > right)
+    {
+      return (direction = 4);
+    }
 
     direction = rand() % 3 + 1;
 
@@ -89,13 +155,28 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7)
   {
     // printf("Bot, Top");
-
-    direction = rand() % 2 + 1;
+    if(bottom > top && bottom > right && bottom > left)
+    {
+      return (direction = 1);
+    }
+    if(top > bottom && top > left && top > right)
+    {
+      return (direction = 2);
+    }
+    return (direction = rand() % 2 + 1);
   }
 
   if(bottom >= 0 && bottom < 7 && right >= 0 && right < 7)
   {
     // printf("Bot, Right");
+    if(bottom > top && bottom > right && bottom > left)
+    {
+      return (direction = 1);
+    }
+    if(right > bottom && right > top && right > left)
+    {
+      return (direction = 3);
+    }
 
     direction = rand() % 2 + 1;
 
@@ -109,6 +190,14 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   if(bottom >= 0 && bottom < 7 && left >= 0 && left < 7)
   {
     // printf("Bot, Left");
+    if(bottom > top && bottom > right && bottom > left)
+    {
+      return (direction = 1);
+    }
+    if(left > bottom && left > right && left > right)
+    {
+      return (direction = 4);
+    }
 
     direction = rand() % 2 + 1;
 
@@ -122,6 +211,14 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   if(top >= 0 && top < 7 && right >= 0 && right < 7)
   {
     // printf("Top, Right");
+    if(top > bottom && top > left && top > right)
+    {
+      return (direction = 2);
+    }
+    if(right > bottom && right > top && right > left)
+    {
+      return (direction = 3);
+    }
 
     direction = rand() % 2 + 1;
 
@@ -139,6 +236,14 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   if(top >= 0 && top < 7 && left >= 0 && left < 7)
   {
     // printf("Top, Left");
+    if(top > bottom && top > left && top > right)
+    {
+      return (direction = 2);
+    }
+    if(left > bottom && left > right && left > right)
+    {
+      return (direction = 4);
+    }
 
     direction = rand() % 2 + 1;
 
@@ -156,6 +261,14 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   if(right >= 0 && right < 7 && left >= 0 && left < 7)
   {
     // printf("Right, Left");
+    if(right > bottom && right > top && right > left)
+    {
+      return (direction = 3);
+    }
+    if(left > bottom && left > right && left > right)
+    {
+      return (direction = 4);
+    }
 
     direction = rand() % 2 + 1;
 
