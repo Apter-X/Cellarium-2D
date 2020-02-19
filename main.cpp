@@ -1,43 +1,31 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <chrono> //timer
-#include <thread> //timer
-
-#include "header/scan.h"
-#include "header/apax.h"
-#include "header/materialize.h"
-
-void materialize();
-int scan();
-void move(int direction, int *xPosition, int *yPosition,int tableau[][10]);
+#include "header/main.h"
 
 int main(int argc, char *argv[])
 {
-  using namespace std::this_thread; // sleep_for, sleep_until
-  using namespace std::chrono; // nanoseconds, system_clock, seconds
-
   int end = 0;
+
   int x1 = 1;
   int y1 = 1;
   int x2 = 7;
   int y2 = 3;
   int x3 = 5;
   int y3 = 1;
+
   int xDim = 10;
   int yDim = 10;
   int timer = 1;
   int direction = 0;
 
-  int matrix[10][10] = {{9,7,7,7,7,7,7,7,7,9},
-                        {8,1,0,0,0,0,0,0,0,8},
-                        {8,0,0,0,0,0,0,0,0,8},
-                        {8,0,0,0,0,0,0,0,0,8},
-                        {8,0,0,0,0,0,0,0,0,8},
-                        {8,-1,0,0,0,0,0,0,0,8},
-                        {8,0,0,0,0,0,0,0,0,8},
-                        {8,0,0,1,0,0,0,1,0,8},
-                        {8,0,0,0,0,0,0,0,0,8},
-                        {9,7,7,7,7,7,7,7,7,9}};
+  MAP(10, 10) = {{9,7,7,7,7,7,7,7,7,9},
+                {8,1,0,8,0,0,0,0,0,8},
+                {8,0,0,0,0,0,0,0,0,8},
+                {8,7,7,7,7,0,7,7,7,8},
+                {8,0,0,0,0,0,0,0,0,8},
+                {8,-1,7,7,7,7,7,7,7,8},
+                {8,0,0,0,0,0,0,0,0,8},
+                {8,0,0,1,0,0,7,1,7,8},
+                {8,0,0,0,0,8,0,0,0,8},
+                {9,7,7,7,7,7,7,7,7,9}};
 
   while(end != 1)
   { 

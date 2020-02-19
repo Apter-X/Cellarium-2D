@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h> //for randomizing
+#include "../header/scan.h"
 
 int scan(int xPosition, int yPosition, int tableau[][10])
 {
