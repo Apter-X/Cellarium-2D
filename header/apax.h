@@ -1,1 +1,0 @@
-int apax(int nombre, int limiteNombre);

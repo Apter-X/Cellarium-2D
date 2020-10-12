@@ -1,6 +1,6 @@
-#include "../header/scan.h"
+#include "../header/cell.h"
 
-int scan(int xPosition, int yPosition, int tableau[][10])
+int Cell::scan(int matrix[][10])
 {
   int direction = 0;
 
@@ -8,17 +8,17 @@ int scan(int xPosition, int yPosition, int tableau[][10])
   srand (time(NULL));
 
   //scanning the 4 ways we have
-  int bottom = tableau[xPosition+1][yPosition];
-  int top = tableau[xPosition-1][yPosition];
-  int right = tableau[xPosition][yPosition+1];
-  int left = tableau[xPosition][yPosition-1];
+  int bottom = matrix[x_position + 1][y_position];
+  int top = matrix[x_position - 1][y_position];
+  int right = matrix[x_position][y_position + 1];
+  int left = matrix[x_position][y_position - 1];
 
-  printf("Scaner :\n");
-  printf("position %d,%d\n", xPosition, yPosition);
-  // printf("bottom = %d\n", bottom);
-  // printf("top = %d\n", top);
-  // printf("right = %d\n", right);
-  // printf("left = %d\n", left);
+  printf("------------------\n");
+  printf("position: %d,%d\n", x_position, y_position);
+  printf("bottom = %d", bottom);
+  printf(" top = %d\n", top);
+  printf("right = %d", right);
+  printf(" left = %d\n", left);
 
   //Choose a direction
   if(bottom >= 0 && bottom < 7 && top >= 0 && top < 7 && right >= 0 && right < 7 && left >= 0 && left < 7)
@@ -301,4 +301,35 @@ int scan(int xPosition, int yPosition, int tableau[][10])
     return (direction = 4);
   }
   return direction;  
+}
+
+void Cell::move(int direction, int matrix[][10])
+{
+    int position = matrix[x_position][y_position];
+
+    switch(direction) 
+  {
+    case 1: //bottom
+      matrix[x_position][y_position] -= position;
+      x_position++;
+      matrix[x_position][y_position] += position;
+      break;
+    case 2: //top
+      matrix[x_position][y_position] -= position;
+      x_position--;
+      matrix[x_position][y_position] += position;
+      break;
+    case 3: //right
+      matrix[x_position][y_position] -= position;
+      y_position++;
+      matrix[x_position][y_position] += position;
+      break;
+    case 4: //left
+      matrix[x_position][y_position] -= position;
+      y_position--;
+      matrix[x_position][y_position] += position;
+      break;
+    default:
+      printf("ERROR MOVE!\n");
+  }
 }

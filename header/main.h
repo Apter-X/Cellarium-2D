@@ -3,24 +3,22 @@
 #include <chrono> //timer
 #include <thread> //timer
 
-#include "scan.h"
-#include "apax.h"
-#include "materialize.h"
-#include "move.h"
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
 
-#define WIDTH_MAP  10
-#define HEIGHT_MAP  10
+#include "cell.h"
+#include "cellarium.h"
 
-#define MAP(width, heigth) int matrix[width][heigth]
-
-using namespace std::this_thread; // sleep_for, sleep_until
-using namespace std::chrono; // nanoseconds, system_clock, seconds
-
-typedef struct Cell Cell;
-struct Cell
-{
-  int x; // Abscisses
-  int y; // Ordonnées
-
-  int id[3];
-};
+int matrix[10][10] = {{9,7,7,7,7,7,7,7,7,9},
+                      {8,1,8,0,0,0,0,8,0,8},
+                      {8,0,0,0,0,0,0,-1,0,8},
+                      {8,7,7,7,7,0,7,7,7,8},
+                      {8,0,0,0,-1,0,0,0,0,8},
+                      {8,-1,7,7,7,7,7,7,7,8},
+                      {8,0,0,0,1,0,0,0,0,8},
+                      {8,7,7,1,0,0,7,0,7,8},
+                      {8,0,0,0,0,8,0,0,0,8},
+                      {9,7,7,7,7,7,7,7,7,9}};
